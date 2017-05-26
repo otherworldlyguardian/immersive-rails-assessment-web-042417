@@ -1,0 +1,19 @@
+<% flash.each do |name, msg| %>
+  <% if name == "error" %>
+    <%= content_tag :div, msg, class: "alert alert-danger", role: "alert" %>
+  <% else %>
+    <%= content_tag :div, msg, class: "alert alert-success", role: "alert" %>
+  <% end %>
+<% end %>
+
+<% if @user %>
+  <h1>Welcome, <%= @user.username %></h1>
+<% end %>
+
+<br><br>
+<%= link_to 'Guest List', guests_path %><br>
+<%= link_to 'Episode List', episodes_path %><br><br>
+
+<% if @user %>
+  <%= link_to 'Make New Appearance', new_appearance_path %>
+<% end %>
